@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from '../Phonebook.module.css';
 import { getContacts } from 'redux/selectors';
-// import { newContact } from 'redux/contactsSlice';
-import { createContactsThunk } from 'redux/thunks';
+import { createContacts } from 'redux/api';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -15,7 +14,7 @@ export const ContactForm = () => {
       alert(`${name} is already in contacts`);
       return;
     }
-     dispatch(createContactsThunk({ name, number }));
+     dispatch(createContacts({ name, number }));
     e.currentTarget.reset();
   }
     return (
